@@ -19,9 +19,13 @@ function Contador() {
   }
 
   return (
-    <div div >
+    <div>
       <div>{contador}</div>
       <button onClick={adicionarContador}>Adicionar</button>
+
+      <div>
+        <a href="/sobre">Acessar página Sobre</a>
+      </div>
     </div >
  )
 }
