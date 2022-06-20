@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link';
 
 
 function Home() {
@@ -23,11 +24,20 @@ function Contador() {
       <div>{contador}</div>
       <button onClick={adicionarContador}>Adicionar</button>
 
+
       <div>
-        <a href="/sobre">Acessar página Sobre</a>
+        <Link href="/sobre">
+          <a>Acessar página Sobre</a>
+        </Link>
       </div>
-    </div >
- )
+
+      <div>
+        <Link href="/tempo">
+          <a>Acessar página Tempo</a>
+        </Link>
+      </div>
+    </div>
+  )
 }
 
 export default Home;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import Link from 'next/link';
 
 function Tempo(props) {
 
@@ -11,14 +11,20 @@ function Tempo(props) {
     <div id="tempo">
       <div id="tempo-din"> {dynamicDateString} (dinâmico)   </div>
       <div id="tempo-est"> {props.staticDateString} (estático) </div>
+
+
+      <Link href="/">
+        <a>Acessar página Home</a>
+      </Link>
     </div>
+
   )
 }
 
 export async function getStaticProps() {
 
   console.log('> Passando pelo getStaticProps();');
- // console.log('> Adicionando um delay de 5 segundos');
+  // console.log('> Adicionando um delay de 5 segundos');
 
   //await delay(5000);
 
