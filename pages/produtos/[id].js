@@ -1,6 +1,6 @@
 //import { useRouter } from 'next/router';
 
-export async function getServerSideProps(context){
+/* export async function getServerSideProps(context){
   const id = context.query.id;
 
   return {
@@ -9,6 +9,33 @@ export async function getServerSideProps(context){
     }
   }
 }
+ */
+export async function getStaticPaths(){
+  return {
+    paths: [{
+      params: {
+        id:'1'
+      }
+    }, {
+      params: {
+        id:'2'
+      }
+    }],
+    fallback: 'blocking'
+  }
+}
+
+export async function getStaticProps(context){
+  await delay(5000);
+  const id = context.params.id;
+
+  return { 
+    props: { 
+      id: id
+    }
+  }
+}
+
 
 function Produtos(props){
   // Retirando a captura de propriedades do lado do cliente 
@@ -21,3 +48,6 @@ function Produtos(props){
 }
 
 export default Produtos;
+
+
+const delay = ms => new Promise(resolve => setTimeout(resolve,ms));
